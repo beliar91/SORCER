@@ -2,6 +2,7 @@ package edu.pjatk.inn.requestor;
 
 import edu.pjatk.inn.coffeemaker.CoffeeService;
 import edu.pjatk.inn.coffeemaker.Delivery;
+import edu.pjatk.inn.coffeemaker.ServiceService;
 import sorcer.core.requestor.ExertRequestor;
 import sorcer.service.*;
 import sorcer.service.modeling.Model;

@@ -1,8 +1,11 @@
 #!/usr/bin/env nsh
 
-@Codebase(group='org.sorcer', module='coffeemaker', version='${sorcer.version}', classifier='dl')
 import edu.pjatk.inn.coffeemaker.CoffeeService
 import edu.pjatk.inn.coffeemaker.Delivery
+import edu.pjatk.inn.coffeemaker.ServiceService
+import sorcer.service.*
+import static sorcer.co.operator.*
+import static sorcer.eo.operator.*
 
 Task coffee = task("coffee", sig("makeCoffee", CoffeeService.class), context(
         ent("recipe/name", "espresso"),
@@ -10,10 +13,12 @@ Task coffee = task("coffee", sig("makeCoffee", CoffeeService.class), context(
         ent("coffee/change"),
         ent("recipe", getEspressoContext())));
 
+//Task serviceTask = task("serviceTask", sig("serviceDo", ServiceService.class), context(ent("location", "PJATK")));
+
 Task delivery = task("delivery", sig("deliver", Delivery.class), context(
         ent("location", "PJATK"),
         ent("delivery/paid"),
         ent("room", "101")));
-
+//serviceTask,
 job(coffee, delivery,
         pipe(outPoint(coffee, "coffee/change"), inPoint(delivery, "delivery/paid")));

@@ -36,7 +36,7 @@ class StartAll {
         String configPath = "${projectBuildDir}/../configs"
 
         def descriptors = []
-        ["coffeemaker", "delivery"].each { provider ->
+        ["coffeemaker","serviceService", "delivery"].each { provider ->
             def configArg = ["${configPath}/${provider}-prv.config"]
             def codebase = "${relativeRepoPath}/coffeemaker-${sorcerVersion}-dl.jar sorcer-dl-${sorcerVersion}.jar sorcer-ui-${sorcerVersion}.jar jsk-dl-${riverVersion}.jar"
 
